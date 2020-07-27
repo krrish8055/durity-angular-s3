@@ -1,0 +1,40 @@
+{
+    "paths": [
+        {
+            "name": "/profileapi",
+            "lambdaFunction": "DURITYAMPLIFYAPI",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH"
+                ]
+            }
+        }
+    ],
+    "resourceName": "DURITYAMPLIFYAPI",
+    "apiName": "DURITYAMPLIFYAPI",
+    "functionArns": [
+        {
+            "lambdaFunction": "DURITYAMPLIFYAPI"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-profileapp-dev-62518-authRole",
+        "unAuthRoleName": "amplify-profileapp-dev-62518-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "DURITYAMPLIFYAPI",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

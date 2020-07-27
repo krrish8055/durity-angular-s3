@@ -1,27 +1,38 @@
 {
-	"auth": {
-		"profileapp01e13cc1": {
-			"service": "Cognito",
+	"function": {
+		"DURITYAMPLIFYAPI": {
+			"build": true,
 			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
+			"service": "Lambda",
+			"dependsOn": []
+		}
+	},
+	"auth": {
+		"cognito4283fa7b": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
 		}
 	},
 	"api": {
-		"profileappApi": {
-			"service": "AppSync",
+		"DURITYAMPLIFYAPI": {
+			"service": "API Gateway",
 			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [],
-					"defaultAuthentication": {
-						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
-						"userPoolConfig": {
-							"userPoolId": "authprofileapp01e13cc1"
-						}
-					}
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "DURITYAMPLIFYAPI",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
 				}
-			}
+			]
+		}
+	},
+	"storage": {
+		"DURITYAMPLIFYAPIS3": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
 		}
 	}
 }
